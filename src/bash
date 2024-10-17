@@ -1,6 +1,0 @@
-tr -c '[:alnum:]' '[\n*]' < alice.txt | \
-tr '[:upper:]' '[:lower:]' | \
-sort | \
-uniq -c | \
-sort -nr > alice.freq.txt
-

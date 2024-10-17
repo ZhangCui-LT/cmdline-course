@@ -1,10 +1,11 @@
-BOOKS=alice christmas_carol dracula frankenstein heart_of_darkness life_of_bee moby_dick modest_propsal pride_and_prejudice tale_of_two_cities ulysses all
+YxBOOKS=alice christmas_carol dracula frankenstein heart_of_darkness life_of_bee moby_dick modest_propsal pride_and_prejudice tale_of_two_cities ulysses all
 
 FREQLISTS=$(BOOKS:%=results/%.freq.txt)
 SENTEDBOOKS=$(BOOKS:%=results/%.sent.txt)
 NO_MD_BOOKS=$(BOOKS:%=data/%.no_md.txt)
 
-all: $(FREQLISTS) $(SENTEDBOOK)
+
+all: $(FREQLISTS) $(SENTEDBOOKS)
 no_md: $(NO_MD_BOOKS)
 
 clean:
@@ -20,5 +21,4 @@ results/%.sent.txt: data/%.no_md.txt
 	src/sent_per_line.sh $< > $@
 
 data/all.no_md.txt: $(NO_MD_BOOKS)
-	<tab>cat $^ > $@
-
+	cat $^ > $@
